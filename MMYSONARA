@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonara - Match Through Music</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Sonara</h1>
+        <p>Connect with people who share your taste in music</p>
+    </header>
+
+    <section id="intro">
+        <h2>Find Your Music Match</h2>
+        <p>Enter your favorite genres and songs to find people who vibe with your taste.</p>
+    </section>
+
+    <section id="form-section">
+        <h3>Tell Us About Your Music Taste</h3>
+        <form id="music-form">
+            <label for="genre">Favorite Genre:</label>
+            <input type="text" id="genre" name="genre" placeholder="e.g., Indie, Pop, Jazz">
+            
+            <label for="song">Favorite Song:</label>
+            <input type="text" id="song" name="song" placeholder="e.g., Song Title by Artist">
+            
+            <button type="submit">Find My Match</button>
+        </form>
+        <p id="result"></p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+/* style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: #4a90e2;
+    color: white;
+    padding: 2em;
+    text-align: center;
+    width: 100%;
+}
+
+section {
+    margin: 2em;
+    max-width: 600px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+#form-section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label, input, button {
+    margin: 0.5em 0;
+}
+
+button {
+    padding: 0.5em 1em;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #357ABD;
+}
+
+
+// script.js
+
+document.getElementById("music-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    const genre = document.getElementById("genre").value;
+    const song = document.getElementById("song").value;
+
+    if (genre && song) {
+        document.getElementById("result").textContent = 
+            `Looking for people who love ${genre} and "${song}"... Stay tuned!`;
+    } else {
+        document.getElementById("result").textContent = 
+            "Please enter both a genre and a song to find your music match!";
+    }
+});
+
